@@ -6,7 +6,7 @@ defmodule CounselorBridge.Event do
   schema "events" do
     belongs_to :interaction, CounselorBridge.Interaction
 
-    field :body, :string
+    field :content, :string
     field :message_id, :string # 34 character unique id
 
     timestamps(inserted_at: :created_at)

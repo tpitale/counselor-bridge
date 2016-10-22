@@ -2,7 +2,7 @@ defmodule CounselorBridge.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", CounselorBridge.RoomChannel
+  channel "interactions:*", CounselorBridge.InteractionsChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket

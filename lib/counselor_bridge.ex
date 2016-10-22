@@ -14,12 +14,18 @@ defmodule CounselorBridge do
       supervisor(CounselorBridge.Endpoint, []),
       # Start your own worker by calling: CounselorBridge.Worker.start_link(arg1, arg2, arg3)
       # worker(CounselorBridge.Worker, [arg1, arg2, arg3]),
+
+      worker(GenEvent, [[name: :bridge_event_manager]])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: CounselorBridge.Supervisor]
-    Supervisor.start_link(children, opts)
+    {:ok, pid} = Supervisor.start_link(children, opts)
+
+    GenEvent.add_handler(:bridge_event_manager, CounselorBridge.Bridge.ChannelHandler, nil)
+
+    {:ok, pid}
   end
 
   # Tell Phoenix to update the endpoint configuration

@@ -1,0 +1,2 @@
+defmodule CounselorBridge.Bridge do
+end
