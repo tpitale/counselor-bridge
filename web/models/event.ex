@@ -7,6 +7,7 @@ defmodule CounselorBridge.Event do
     belongs_to :interaction, CounselorBridge.Interaction
 
     field :body, :string
+    field :message_id, :string # 34 character unique id
 
     timestamps(inserted_at: :created_at)
   end
