@@ -17,4 +17,11 @@ defmodule CounselorBridge.Client do
     |> first
     |> Repo.one
   end
+
+  def create(phone) do
+    %__MODULE__{
+      phone: phone
+    }
+    |> Repo.insert
+  end
 end

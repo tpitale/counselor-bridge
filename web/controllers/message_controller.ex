@@ -10,10 +10,15 @@ defmodule CounselorBridge.MessageController do
     IO.inspect params
 
     client = CounselorBridge.Client.get(params["From"])
+
+    {:ok, client} = if !client do
+      CounselorBridge.Client.create(params["From"])
+    end
+
     interaction = CounselorBridge.Interaction.open_for(client)
 
-    if !interaction do
-      {:ok, interaction} = CounselorBridge.Interaction.create(client)
+    {:ok, interaction} = if !interaction do
+      CounselorBridge.Interaction.create(client)
     end
 
     {:ok, event} = CounselorBridge.Event.create(interaction, %{message_id: params["MessageSid"], content: params["Body"]})
