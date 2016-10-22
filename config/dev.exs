@@ -35,8 +35,8 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :counselor_bridge, CounselorBridge.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "counselor_bridge_dev",
+  # username: "postgres",
+  # password: "postgres",
+  database: "counselor_development",
   hostname: "localhost",
   pool_size: 10

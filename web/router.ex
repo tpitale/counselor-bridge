@@ -20,7 +20,9 @@ defmodule CounselorBridge.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", CounselorBridge do
-  #   pipe_through :api
-  # end
+  scope "/api", CounselorBridge do
+    pipe_through :api
+
+    post "/messages", MessageController, :create
+  end
 end
