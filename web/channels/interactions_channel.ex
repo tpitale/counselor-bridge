@@ -1,18 +1,6 @@
 defmodule CounselorBridge.InteractionsChannel do
   use CounselorBridge.Web, :channel
 
-  # all interactions for /interactions index
-  # TODO: ????????
-  def join("interactions:*", payload, socket) do
-    if authorized?(payload) do
-      IO.inspect payload
-      {:ok, "Streaming all interactions", socket}
-    else
-      IO.puts "error joining channel"
-      {:error, %{reason: "unauthorized"}}
-    end
-  end
-
   # specific interaction for /interactions/:id
   def join("interactions:" <> interaction_id, payload, socket) do
     if authorized?(payload) do
@@ -23,6 +11,17 @@ defmodule CounselorBridge.InteractionsChannel do
       {:error, %{reason: "unauthorized"}}
     end
   end
+
+  def join("interactions", payload, socket) do
+    if authorized?(payload) do
+      IO.inspect payload
+      {:ok, "Streaming all events", socket}
+    else
+      IO.puts "error joining channel"
+      {:error, %{reason: "unauthorized"}}
+    end
+  end
+
 
   # Channels can be used in a request/response fashion
   # by sending replies to requests from the client
@@ -52,6 +51,9 @@ defmodule CounselorBridge.InteractionsChannel do
 
     IO.puts "broadcasting event #{event.id} for interaction #{event.interaction_id}"
 
+    # broadcast to both specific id and all
+    # TODO: is there a better way
     CounselorBridge.Endpoint.broadcast("interactions:#{event.interaction_id}", "event", payload)
+    CounselorBridge.Endpoint.broadcast("interactions", "event", payload)
   end
 end
