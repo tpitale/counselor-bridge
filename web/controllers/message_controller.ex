@@ -4,7 +4,7 @@ defmodule CounselorBridge.MessageController do
   def create(conn, params) do
     # https://www.twilio.com/docs/api/twiml/sms/twilio_request#synchronous
     # MessageSid
-    # From => lookup client, lookup/create interaction, create event; notify with event
+    # From => lookup/create client, lookup/create interaction, create event; notify with event
     # Body
 
     IO.inspect params
