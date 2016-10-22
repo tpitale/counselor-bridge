@@ -13,11 +13,9 @@ defmodule CounselorBridge.Event do
   end
 
   def create(interaction, %{message_id: message_id, content: content}) do
-    %__MODULE__{
-      interaction_id: interaction.id,
-      message_id: message_id,
-      content: content
-    }
-    |> Repo.insert
+    case Repo.insert(%__MODULE__{interaction_id: interaction.id, message_id: message_id, content: content}) do
+      {:ok, event} -> event
+      _ -> %__MODULE__{}
+    end
   end
 end

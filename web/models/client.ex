@@ -13,15 +13,14 @@ defmodule CounselorBridge.Client do
 
   def get(phone) do
     from(__MODULE__, where: [phone: ^phone])
-
     |> first
     |> Repo.one
   end
 
   def create(phone) do
-    %__MODULE__{
-      phone: phone
-    }
-    |> Repo.insert
+    case Repo.insert(%__MODULE__{phone: phone}) do
+      {:ok, client} -> client
+      _ -> nil
+    end
   end
 end

@@ -21,10 +21,9 @@ defmodule CounselorBridge.Interaction do
   end
 
   def create(client) do
-    %__MODULE__{
-      client_id: client.id,
-      status: "open"
-    }
-    |> Repo.insert
+    case Repo.insert(%__MODULE__{client_id: client.id, status: "open"}) do
+      {:ok, interaction} -> interaction
+      _ -> nil
+    end
   end
 end

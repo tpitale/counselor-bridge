@@ -9,19 +9,13 @@ defmodule CounselorBridge.MessageController do
 
     IO.inspect params
 
-    client = CounselorBridge.Client.get(params["From"])
+    client = CounselorBridge.Client.get(params["From"]) ||
+              CounselorBridge.Client.create(params["From"])
 
-    {:ok, client} = if !client do
-      CounselorBridge.Client.create(params["From"])
-    end
+    interaction = CounselorBridge.Interaction.open_for(client) ||
+                    CounselorBridge.Interaction.create(client)
 
-    interaction = CounselorBridge.Interaction.open_for(client)
-
-    {:ok, interaction} = if !interaction do
-      CounselorBridge.Interaction.create(client)
-    end
-
-    {:ok, event} = CounselorBridge.Event.create(interaction, %{message_id: params["MessageSid"], content: params["Body"]})
+    event = CounselorBridge.Event.create(interaction, %{message_id: params["MessageSid"], content: params["Body"]})
 
     GenEvent.ack_notify(:bridge_event_manager, {:event, event})
 
