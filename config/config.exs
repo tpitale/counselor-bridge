@@ -17,6 +17,10 @@ config :counselor_bridge, CounselorBridge.Endpoint,
   pubsub: [name: CounselorBridge.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+ # Configures Twilio
+ config :ex_twilio, account_sid: System.get_env("TWILIO_ACCOUNT_ID"),
+                   auth_token:  System.get_env("TWILIO_AUTH_TOKEN")
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
