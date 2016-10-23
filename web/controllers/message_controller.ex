@@ -9,6 +9,11 @@ defmodule CounselorBridge.MessageController do
 
     IO.inspect params
 
+    # send welcome message if we don't have a client for them yet
+    if !CounselorBridge.Client.get(params["From"]) do
+      ExTwilio.Message.create(from: "+18556251700", to: params["From"], body: "Thanks for contacting MyCounselor, a 100% free 24/7 support service for St. Louis residents. Feel free to ask me any question: from  utility bill issues to landlord disputes, emergency shelter, food services and more.")
+    end
+
     client = CounselorBridge.Client.get(params["From"]) ||
               CounselorBridge.Client.create(params["From"])
 
