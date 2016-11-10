@@ -1,3 +1,3 @@
-defmodule CounselorBridge.PageViewTest do
-  use CounselorBridge.ConnCase, async: true
+defmodule AdvocateBridge.PageViewTest do
+  use AdvocateBridge.ConnCase, async: true
 end

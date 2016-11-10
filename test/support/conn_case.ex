@@ -1,4 +1,4 @@
-defmodule CounselorBridge.ConnCase do
+defmodule AdvocateBridge.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -20,23 +20,23 @@ defmodule CounselorBridge.ConnCase do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
 
-      alias CounselorBridge.Repo
+      alias AdvocateBridge.Repo
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
 
-      import CounselorBridge.Router.Helpers
+      import AdvocateBridge.Router.Helpers
 
       # The default endpoint for testing
-      @endpoint CounselorBridge.Endpoint
+      @endpoint AdvocateBridge.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(CounselorBridge.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(AdvocateBridge.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(CounselorBridge.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(AdvocateBridge.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}

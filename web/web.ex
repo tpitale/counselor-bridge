@@ -1,12 +1,12 @@
-defmodule CounselorBridge.Web do
+defmodule AdvocateBridge.Web do
   @moduledoc """
   A module that keeps using definitions for controllers,
   views and so on.
 
   This can be used in your application as:
 
-      use CounselorBridge.Web, :controller
-      use CounselorBridge.Web, :view
+      use AdvocateBridge.Web, :controller
+      use AdvocateBridge.Web, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -30,12 +30,12 @@ defmodule CounselorBridge.Web do
     quote do
       use Phoenix.Controller
 
-      alias CounselorBridge.Repo
+      alias AdvocateBridge.Repo
       import Ecto
       import Ecto.Query
 
-      import CounselorBridge.Router.Helpers
-      import CounselorBridge.Gettext
+      import AdvocateBridge.Router.Helpers
+      import AdvocateBridge.Gettext
     end
   end
 
@@ -49,9 +49,9 @@ defmodule CounselorBridge.Web do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import CounselorBridge.Router.Helpers
-      import CounselorBridge.ErrorHelpers
-      import CounselorBridge.Gettext
+      import AdvocateBridge.Router.Helpers
+      import AdvocateBridge.ErrorHelpers
+      import AdvocateBridge.Gettext
     end
   end
 
@@ -65,10 +65,10 @@ defmodule CounselorBridge.Web do
     quote do
       use Phoenix.Channel
 
-      alias CounselorBridge.Repo
+      alias AdvocateBridge.Repo
       import Ecto
       import Ecto.Query
-      import CounselorBridge.Gettext
+      import AdvocateBridge.Gettext
     end
   end
 

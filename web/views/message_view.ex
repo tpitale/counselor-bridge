@@ -1,5 +1,5 @@
-defmodule CounselorBridge.MessageView do
-  use CounselorBridge.Web, :view
+defmodule AdvocateBridge.MessageView do
+  use AdvocateBridge.Web, :view
 
   def render("create.xml", _content) do
     # empty response

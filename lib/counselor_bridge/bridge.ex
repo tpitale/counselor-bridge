@@ -1,2 +1,2 @@
-defmodule CounselorBridge.Bridge do
+defmodule AdvocateBridge.Bridge do
 end

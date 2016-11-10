@@ -1,4 +1,4 @@
-# CounselorBridge
+# AdvocateBridge
 
 To start your Phoenix app:
 

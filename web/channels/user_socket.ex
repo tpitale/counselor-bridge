@@ -1,9 +1,9 @@
-defmodule CounselorBridge.UserSocket do
+defmodule AdvocateBridge.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  channel "interactions", CounselorBridge.InteractionsChannel
-  channel "interactions:*", CounselorBridge.InteractionsChannel
+  channel "interactions", AdvocateBridge.InteractionsChannel
+  channel "interactions:*", AdvocateBridge.InteractionsChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
@@ -31,7 +31,7 @@ defmodule CounselorBridge.UserSocket do
   # Would allow you to broadcast a "disconnect" event and terminate
   # all active sockets and channels for a given user:
   #
-  #     CounselorBridge.Endpoint.broadcast("users_socket:#{user.id}", "disconnect", %{})
+  #     AdvocateBridge.Endpoint.broadcast("users_socket:#{user.id}", "disconnect", %{})
   #
   # Returning `nil` makes this socket anonymous.
   def id(_socket), do: nil

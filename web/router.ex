@@ -1,5 +1,5 @@
-defmodule CounselorBridge.Router do
-  use CounselorBridge.Web, :router
+defmodule AdvocateBridge.Router do
+  use AdvocateBridge.Web, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,14 +13,14 @@ defmodule CounselorBridge.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", CounselorBridge do
+  scope "/", AdvocateBridge do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
   end
 
   # Other scopes may use custom stacks.
-  scope "/api", CounselorBridge do
+  scope "/api", AdvocateBridge do
     pipe_through :api
 
     post "/messages", MessageController, :create

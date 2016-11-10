@@ -1,10 +1,10 @@
-defmodule CounselorBridge.Event do
+defmodule AdvocateBridge.Event do
   use Ecto.Schema
 
-  alias CounselorBridge.Repo
+  alias AdvocateBridge.Repo
 
   schema "events" do
-    belongs_to :interaction, CounselorBridge.Interaction
+    belongs_to :interaction, AdvocateBridge.Interaction
 
     field :content, :string
     field :message_id, :string # 34 character unique id

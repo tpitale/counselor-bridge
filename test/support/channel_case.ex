@@ -1,4 +1,4 @@
-defmodule CounselorBridge.ChannelCase do
+defmodule AdvocateBridge.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -20,22 +20,22 @@ defmodule CounselorBridge.ChannelCase do
       # Import conveniences for testing with channels
       use Phoenix.ChannelTest
 
-      alias CounselorBridge.Repo
+      alias AdvocateBridge.Repo
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
 
 
       # The default endpoint for testing
-      @endpoint CounselorBridge.Endpoint
+      @endpoint AdvocateBridge.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(CounselorBridge.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(AdvocateBridge.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(CounselorBridge.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(AdvocateBridge.Repo, {:shared, self()})
     end
 
     :ok

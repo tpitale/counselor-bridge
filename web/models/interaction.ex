@@ -1,12 +1,12 @@
-defmodule CounselorBridge.Interaction do
+defmodule AdvocateBridge.Interaction do
   use Ecto.Schema
 
-  alias CounselorBridge.Repo
+  alias AdvocateBridge.Repo
 
   import Ecto.Query, only: [from: 2, first: 2]
 
   schema "interactions" do
-    belongs_to :client, CounselorBridge.Client
+    belongs_to :client, AdvocateBridge.Client
 
     field :status, :string
 

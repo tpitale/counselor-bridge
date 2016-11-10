@@ -6,15 +6,15 @@
 use Mix.Config
 
 # General application configuration
-config :counselor_bridge,
-  ecto_repos: [CounselorBridge.Repo]
+config :advocate_bridge,
+  ecto_repos: [AdvocateBridge.Repo]
 
 # Configures the endpoint
-config :counselor_bridge, CounselorBridge.Endpoint,
+config :advocate_bridge, AdvocateBridge.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "s4tyfeMCa+J32WOP+HuiV1WSuq4HvX4XzEbfJdnT2vg8+K4D6BYpL238QEXI53xd",
-  render_errors: [view: CounselorBridge.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: CounselorBridge.PubSub,
+  render_errors: [view: AdvocateBridge.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: AdvocateBridge.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger

@@ -1,5 +1,5 @@
-defmodule CounselorBridge.PageControllerTest do
-  use CounselorBridge.ConnCase
+defmodule AdvocateBridge.PageControllerTest do
+  use AdvocateBridge.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"

@@ -1,4 +1,4 @@
-defmodule CounselorBridge.ErrorHelpers do
+defmodule AdvocateBridge.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -32,9 +32,9 @@ defmodule CounselorBridge.ErrorHelpers do
     #     dgettext "errors", "is invalid"
     #
     if count = opts[:count] do
-      Gettext.dngettext(CounselorBridge.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(AdvocateBridge.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(CounselorBridge.Gettext, "errors", msg, opts)
+      Gettext.dgettext(AdvocateBridge.Gettext, "errors", msg, opts)
     end
   end
 end

@@ -1,5 +1,5 @@
-defmodule CounselorBridge.ErrorView do
-  use CounselorBridge.Web, :view
+defmodule AdvocateBridge.ErrorView do
+  use AdvocateBridge.Web, :view
 
   def render("404.html", _assigns) do
     "Page not found"

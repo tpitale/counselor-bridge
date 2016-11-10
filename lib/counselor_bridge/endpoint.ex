@@ -1,14 +1,14 @@
-defmodule CounselorBridge.Endpoint do
-  use Phoenix.Endpoint, otp_app: :counselor_bridge
+defmodule AdvocateBridge.Endpoint do
+  use Phoenix.Endpoint, otp_app: :advocate_bridge
 
-  socket "/socket", CounselorBridge.UserSocket
+  socket "/socket", AdvocateBridge.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phoenix.digest
   # when deploying your static files in production.
   plug Plug.Static,
-    at: "/", from: :counselor_bridge, gzip: false,
+    at: "/", from: :advocate_bridge, gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
@@ -35,8 +35,8 @@ defmodule CounselorBridge.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   plug Plug.Session,
     store: :cookie,
-    key: "_counselor_bridge_key",
+    key: "_advocate_bridge_key",
     signing_salt: "oXanoKeO"
 
-  plug CounselorBridge.Router
+  plug AdvocateBridge.Router
 end

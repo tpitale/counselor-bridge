@@ -1,3 +1,3 @@
-defmodule CounselorBridge.LayoutView do
-  use CounselorBridge.Web, :view
+defmodule AdvocateBridge.LayoutView do
+  use AdvocateBridge.Web, :view
 end

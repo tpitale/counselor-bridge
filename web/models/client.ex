@@ -1,7 +1,7 @@
-defmodule CounselorBridge.Client do
+defmodule AdvocateBridge.Client do
   use Ecto.Schema
 
-  alias CounselorBridge.Repo
+  alias AdvocateBridge.Repo
 
   import Ecto.Query, only: [from: 2, first: 1]
 

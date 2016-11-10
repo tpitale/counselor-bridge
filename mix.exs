@@ -1,8 +1,8 @@
-defmodule CounselorBridge.Mixfile do
+defmodule AdvocateBridge.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :counselor_bridge,
+    [app: :advocate_bridge,
      version: "0.0.1",
      elixir: "~> 1.2",
      elixirc_paths: elixirc_paths(Mix.env),
@@ -17,7 +17,7 @@ defmodule CounselorBridge.Mixfile do
   #
   # Type `mix help compile.app` for more information.
   def application do
-    [mod: {CounselorBridge, []},
+    [mod: {AdvocateBridge, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
                     :phoenix_ecto, :postgrex]]
   end

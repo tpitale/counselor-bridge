@@ -1,3 +1,3 @@
-defmodule CounselorBridge.PageView do
-  use CounselorBridge.Web, :view
+defmodule AdvocateBridge.PageView do
+  use AdvocateBridge.Web, :view
 end

@@ -1,5 +1,5 @@
-defmodule CounselorBridge.PageController do
-  use CounselorBridge.Web, :controller
+defmodule AdvocateBridge.PageController do
+  use AdvocateBridge.Web, :controller
 
   def index(conn, _params) do
     render conn, "index.html"

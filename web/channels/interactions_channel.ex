@@ -1,5 +1,5 @@
-defmodule CounselorBridge.InteractionsChannel do
-  use CounselorBridge.Web, :channel
+defmodule AdvocateBridge.InteractionsChannel do
+  use AdvocateBridge.Web, :channel
 
   # specific interaction for /interactions/:id
   def join("interactions:" <> interaction_id, payload, socket) do
@@ -53,7 +53,7 @@ defmodule CounselorBridge.InteractionsChannel do
 
     # broadcast to both specific id and all
     # TODO: is there a better way
-    CounselorBridge.Endpoint.broadcast("interactions:#{event.interaction_id}", "event", payload)
-    CounselorBridge.Endpoint.broadcast("interactions", "event", payload)
+    AdvocateBridge.Endpoint.broadcast("interactions:#{event.interaction_id}", "event", payload)
+    AdvocateBridge.Endpoint.broadcast("interactions", "event", payload)
   end
 end

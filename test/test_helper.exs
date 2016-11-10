@@ -1,4 +1,4 @@
 ExUnit.start
 
-Ecto.Adapters.SQL.Sandbox.mode(CounselorBridge.Repo, :manual)
+Ecto.Adapters.SQL.Sandbox.mode(AdvocateBridge.Repo, :manual)
 
