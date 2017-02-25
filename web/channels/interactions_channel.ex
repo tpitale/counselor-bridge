@@ -39,6 +39,7 @@ defmodule AdvocateBridge.InteractionsChannel do
 
   # Add authorization logic here as required.
   defp authorized?(_payload) do
+    # TODO: lookup User by key
     true
   end
 
