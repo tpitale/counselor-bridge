@@ -1,19 +1,19 @@
 build:
-	docker build -t advocate-bridge .
+	docker build --build-arg BUILD_ENV=${BUILD_ENV} -t advocate-bridge_${BUILD_ENV} .
 
 tag:
-	docker tag advocate-bridge:latest ${DOCKER_REGISTRY}/advocate-bridge
+	docker tag advocate-bridge_${BUILD_ENV}:latest ${DOCKER_REGISTRY}/advocate-bridge_${BUILD_ENV}
 
 push:
-	docker push ${DOCKER_REGISTRY}/advocate-bridge
+	docker push ${DOCKER_REGISTRY}/advocate-bridge_${BUILD_ENV}
 
 release: build tag push
 
 run: build
-	docker run -it -p 3001:80 --env-file .env --rm --name advocate-bridge advocate-bridge
+	docker run -it -p 3001:80 --env-file .env --rm --name advocate-bridge advocate-bridge_${BUILD_ENV}
 
 console: build
-	docker run -it -p 3000:80 --env-file .env --rm --name advocate-bridge advocate-bridge iex -S mix
+	docker run -it -p 3000:80 --env-file .env --rm --name advocate-bridge advocate-bridge_${BUILD_ENV} iex -S mix
 
 shell:
 	docker exec -it advocate-bridge /bin/bash

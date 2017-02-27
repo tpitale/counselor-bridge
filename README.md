@@ -30,7 +30,7 @@ If you need to run one at a time follow the steps below:
 
 *Note:* You may have done this as part of Advocate setup
 
-1. `sudo ifconfig lo0 10.200.10.1/24`
+1. `sudo ifconfig lo0 alias 10.200.10.1/24`
 2. Trust all postgresql connections from 10.200.10.1
 3. Change `listen_addresses = '*'` OR `listen_addresses = 'localhost,10.200.10.1'
 

@@ -16,8 +16,9 @@ RUN mix deps.get
 
 ADD . /app
 
-# TODO: we need to set MIX_ENV=prod for compilation
-#   can be done with --build-arg maybe
+ARG BUILD_ENV=dev
+ENV MIX_ENV=$BUILD_ENV
+
 RUN mix compile
 
 CMD ["mix", "phoenix.server"]
