@@ -12,7 +12,7 @@ config :advocate_bridge,
 # Configures the endpoint
 config :advocate_bridge, AdvocateBridge.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "s4tyfeMCa+J32WOP+HuiV1WSuq4HvX4XzEbfJdnT2vg8+K4D6BYpL238QEXI53xd",
+  secret_key_base: System.get_env("SECRET_KEY_BASE"),
   render_errors: [view: AdvocateBridge.ErrorView, accepts: ~w(html json)],
   pubsub: [name: AdvocateBridge.PubSub,
            adapter: Phoenix.PubSub.PG2]
