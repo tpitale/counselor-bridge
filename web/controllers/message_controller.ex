@@ -6,6 +6,7 @@ defmodule AdvocateBridge.MessageController do
     # MessageSid
     # From => lookup/create client, lookup/create interaction, create event; notify with event
     # Body
+    # curl -d "From=+18005550123" -d "MessageSid=102991823" -d "Body=reply reply reply" http://localhost:3001/api/messages
 
     IO.inspect params
 
