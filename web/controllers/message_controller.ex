@@ -6,7 +6,7 @@ defmodule AdvocateBridge.MessageController do
     # MessageSid
     # From => lookup/create client, lookup/create interaction, create event; notify with event
     # Body
-    # curl -d "From=+18005550123" -d "MessageSid=102991823" -d "Body=reply reply reply" http://localhost:3001/api/messages
+    # curl -d "From=%2B18005550123" -d "MessageSid=102991823" -d "Body=reply reply reply" http://localhost:3001/api/messages
 
     IO.inspect params
 
@@ -18,6 +18,7 @@ defmodule AdvocateBridge.MessageController do
 
     event = AdvocateBridge.Event.create(interaction, %{message_id: params["MessageSid"], content: params["Body"]})
 
+    IO.inspect event
     GenEvent.ack_notify(:bridge_event_manager, {:event, event})
 
     conn

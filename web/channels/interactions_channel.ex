@@ -47,6 +47,7 @@ defmodule AdvocateBridge.InteractionsChannel do
     payload = %{
       id: event.id,
       interaction_id: event.interaction_id,
+      message_id: event.message_id,
       content: event.content
     }
 
