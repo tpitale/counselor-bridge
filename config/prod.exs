@@ -14,7 +14,8 @@ use Mix.Config
 config :advocate_bridge, AdvocateBridge.Endpoint,
   http: [port: {:system, "PORT"}],
   url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/manifest.json"
+  cache_static_manifest: "priv/static/manifest.json",
+  server: true
 
 # Do not print debug messages in production
 config :logger, level: :info
@@ -28,8 +29,8 @@ config :logger, level: :info
 #       ...
 #       url: [host: "example.com", port: 443],
 #       https: [port: 443,
-#               keyfile: System.get_env("SOME_APP_SSL_KEY_PATH"),
-#               certfile: System.get_env("SOME_APP_SSL_CERT_PATH")]
+#               keyfile: "${SOME_APP_SSL_KEY_PATH}",
+#               certfile: "${SOME_APP_SSL_CERT_PATH}"]
 #
 # Where those two env variables return an absolute path to
 # the key and cert in disk or a relative path inside priv,
@@ -62,13 +63,13 @@ config :logger, level: :info
 
 # Normally this is in secret, but we get it from env
 config :advocate_bridge, AdvocateBridge.Endpoint,
-  secret_key_base: System.get_env("SECRET_KEY_BASE")
+  secret_key_base: "${SECRET_KEY_BASE}"
 
 # Configure your database
 config :advocate_bridge, AdvocateBridge.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: System.get_env("POSTGRES_USER"),
-  password: System.get_env("POSTGRES_PASSWORD"),
-  database: System.get_env("POSTGRES_DB") || "advocate_production",
-  hostname: System.get_env("POSTGRES_HOST") || "localhost",
+  username: "${POSTGRES_USER}",
+  password: "${POSTGRES_PASSWORD}",
+  database: "${POSTGRES_DB}" || "advocate_production",
+  hostname: "${POSTGRES_HOST}" || "localhost",
   pool_size: 20
