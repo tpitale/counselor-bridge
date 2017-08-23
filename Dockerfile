@@ -21,4 +21,4 @@ ENV MIX_ENV=$BUILD_ENV
 
 RUN mix compile
 
-CMD ["mix", "phoenix.server"]
+CMD elixir --sname $SNAME --cookie $COOKIE -S mix phoenix.server
