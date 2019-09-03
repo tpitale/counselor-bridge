@@ -13,7 +13,7 @@ run: build
 	docker run -it -p 3001:80 --env-file .env --rm --name advocate-bridge advocate-bridge_${BUILD_ENV}
 
 console: build
-	docker run -it -p 3000:80 --env-file .env --rm --name advocate-bridge advocate-bridge_${BUILD_ENV} iex -S mix
+	docker run -it -p 3000:80 --env-file .env --rm --name advocate-bridge advocate-bridge_${BUILD_ENV} iex --sname advocate-bridge-console --cookie ${COOKIE} -S mix
 
 shell:
 	docker exec -it advocate-bridge /bin/bash
